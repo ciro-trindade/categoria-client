@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import financas.dto.CredenciaisDTO;
+import financas.model.Cliente;
 
 @WebFilter(urlPatterns = "/faces/protected/*", dispatcherTypes = {DispatcherType.REQUEST})
 public class AutorizacaoFilter implements Filter {
@@ -27,7 +27,7 @@ public class AutorizacaoFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
         HttpSession sessao = ((HttpServletRequest) request).getSession();
-        CredenciaisDTO user = (CredenciaisDTO) sessao.getAttribute("usuario");
+        Cliente user = (Cliente) sessao.getAttribute("usuario");
         if (user != null) {
             chain.doFilter(request, response);
         }

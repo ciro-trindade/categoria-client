@@ -9,8 +9,12 @@ public interface RESTClientInterface<T> {
 	public static final int STATUS_UNAUTHORIZED = Response.Status.UNAUTHORIZED.getStatusCode();
 	public static final int STATUS_NOT_ACCEPTABLE = Response.Status.NOT_ACCEPTABLE.getStatusCode();
 	
+	
     public static final String REST_WEBSERVICE_URL = 
     	       "https://afternoon-crag-29106.herokuapp.com/";
+    /*
+	public static final String REST_WEBSERVICE_URL = "http://localhost:8090/";
+	*/
     public static final String REST_CATEGORIA_URL = "categorias/";
 
     public List<T> findAll();

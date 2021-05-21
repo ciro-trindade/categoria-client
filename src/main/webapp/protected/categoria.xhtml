@@ -19,15 +19,15 @@
 			<p:column headerText="Categoria">
 				<h:outputText value="#{c.nome}" />
 			</p:column>
-			<p:column headerText="Editar">
+			<p:column headerText="Editar" rendered="#{usuario.admin}">
 				<p:commandButton value="Editar" action="#{categoriaBean.pagCategoria(c)}" ajax="false"/>
 			</p:column>
-			<p:column headerText="Excluir" >
+			<p:column headerText="Excluir" rendered="#{usuario.admin}">
 				<p:commandButton value="Excluir" onclick="return confirm('Confirma a exclusão');" action="#{categoriaBean.excluir(c)}" update="frm"/>
 			</p:column>
 			
 		</p:dataTable>
-		<p:commandButton value="Nova categoria" action="#{categoriaBean.pagCategoria}" ajax="false"/>
+		<p:commandButton value="Nova categoria" action="#{categoriaBean.pagCategoria}" ajax="false" rendered="#{usuario.admin}"/>
 		<p:commandButton value="Sair" action="#{usuarioBean.logout}" ajax="false"/>
 	</h:form>
 </h:body>
